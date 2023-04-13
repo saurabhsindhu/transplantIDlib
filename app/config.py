@@ -28,48 +28,54 @@ class Config():
         self.KERKO_ZOTERO_API_KEY = env.str('KERKO_ZOTERO_API_KEY')
         self.KERKO_ZOTERO_LIBRARY_ID = env.str('KERKO_ZOTERO_LIBRARY_ID')
         self.KERKO_ZOTERO_LIBRARY_TYPE = env.str('KERKO_ZOTERO_LIBRARY_TYPE')
-        self.KERKO_DATA_DIR = env.str('KERKO_DATA_DIR', str(app_dir / 'data' / 'kerko'))
+        self.KERKO_DATA_DIR = env.str(
+            'KERKO_DATA_DIR', str(app_dir / 'data' / 'kerko'))
 
         # Set other configuration variables.
         self.LOGGING_HANDLER = 'default'
 
         self.LIBSASS_INCLUDES = [
-            str(pathlib.Path(__file__).parent.parent / 'static' / 'src' / 'vendor' / 'bootstrap' / 'scss'),
-            str(pathlib.Path(__file__).parent.parent / 'static' / 'src' / 'vendor' / '@fortawesome' / 'fontawesome-free' / 'scss'),
+            str(pathlib.Path(__file__).parent.parent / 'static' /
+                'src' / 'vendor' / 'bootstrap' / 'scss'),
+            str(pathlib.Path(__file__).parent.parent / 'static' / 'src' /
+                'vendor' / '@fortawesome' / 'fontawesome-free' / 'scss'),
         ]
 
         self.BABEL_DEFAULT_LOCALE = 'en_GB'
         self.KERKO_WHOOSH_LANGUAGE = 'en'
         self.KERKO_ZOTERO_LOCALE = 'en-GB'
 
-        self.HOME_URL = 'https://edtechhub.org/'
-        self.HOME_TITLE = _("The EdTech Hub")
-        self.HOME_SUBTITLE = _("Research and Innovation to fulfil the potential of EdTech")
+        self.HOME_URL = 'https://www.zotero.org/transplantid/library'
+        self.HOME_URL2 = '/'
+        self.HOME_TITLE = _("TransplantID")
+        self.HOME_SUBTITLE = _(
+            "Research and Innovation to fulfil the potential of TransplantID")
         self.ABOUT_WHAT_WE_DO = 'https://edtechhub.org/what-we-do/'
-        self.ABOUT_WHERE_WE_WORK= 'https://edtechhub.org/where-we-work/'
+        self.ABOUT_WHERE_WE_WORK = 'https://edtechhub.org/where-we-work/'
         self.ABOUT_OUR_TEAM = 'https://edtechhub.org/our-team/'
         self.ABOUT_STRATEGIC_ADVISORY = 'https://edtechhub.org/strategic-advisory-board/'
         self.ABOUT_SPECIALIST_NETWORK = 'https://edtechhub.org/specialist-network/'
-        self.TOOLS_DATABASE_URL = 'https://database.edtechhub.org/'
-        self.EVIDENCE_ABOUT_URL = 'https://edtechhub.org/evidence/'
+        self.TOOLS_DATABASE_URL = 'https://www.myast.org/communities-practice/infectious-disease-community-practice-idcop'
+        self.EVIDENCE_ABOUT_URL = 'https://www.zotero.org/transplantid/library'
         self.EVIDENCE_LIBRARY_URL = 'https://docs.edtechhub.org/lib/'
         self.EVIDENCE_COUNTRY_ENGAGEMENT_URL = 'https://edtechhub.org/where-we-work/'
         self.EVIDENCE_TOPIC_AREAS_URL = 'https://edtechhub.org/our-topic-areas/'
         self.EVIDENCE_RESEARCH_PORTFOLIO_URL = 'https://edtechhub.org/evidence/edtech-hub-research-portfolio/'
         self.EVIDENCE_SANDBOXES_URL = 'https://edtechhub.org/sandboxes/'
         self.EVIDENCE_HELPDESK_URL = 'https://edtechhub.org/edtech-hub-helpdesk/'
-        self.BLOG_URL = 'https://edtechhub.org/blog/'
+        self.BLOG_URL = 'https://doi.org/10.1093/ofid/ofad081'
         self.CONNECT_WITH_US_URL = 'https://edtechhub.org/connect-with-edtech-hub/'
         self.CONNECT_WITH_US_NEWSLETTER_URL = 'https://edtechhub.org/newsletter/'
         self.CONNECT_WITH_US_EVENTS_URL = 'https://edtechhub.org/events/'
         self.CONNECT_WITH_US_CONTACT_URL = 'https://edtechhub.org/connect-with-edtech-hub/#contact'
 
-        self.NAV_TITLE = _("Evidence Library")
-        self.KERKO_TITLE = _("Evidence Library – The EdTech Hub")
+        self.NAV_TITLE = _("")
+        self.KERKO_TITLE = _("TransplantID")
         self.KERKO_PRINT_ITEM_LINK = True
         self.KERKO_PRINT_CITATIONS_LINK = True
-        self.KERKO_RESULTS_FIELDS = ['id', 'attachments', 'bib', 'data', 'preview', 'url']
-        self.KERKO_RESULTS_ABSTRACTS = True
+        self.KERKO_RESULTS_FIELDS = [
+            'id', 'attachments', 'bib', 'data', 'preview', 'url']
+        self.KERKO_RESULTS_ABSTRACTS = False
         self.KERKO_RESULTS_ABSTRACTS_MAX_LENGTH = 500
         self.KERKO_RESULTS_ABSTRACTS_MAX_LENGTH_LEEWAY = 40
         self.KERKO_TEMPLATE_LAYOUT = 'app/layout.html.jinja2'
@@ -90,7 +96,8 @@ class Config():
 
         self.KERKO_COMPOSER = Composer(
             whoosh_language=self.KERKO_WHOOSH_LANGUAGE,
-            exclude_default_facets=['facet_tag', 'facet_link', 'facet_item_type'],
+            exclude_default_facets=[
+                'facet_tag', 'facet_link', 'facet_item_type', 'facet_year'],
             exclude_default_fields=['data'],
             default_item_exclude_re=r'^_exclude$',
             default_child_include_re=r'^(_publish|publishPDF)$',
@@ -119,15 +126,18 @@ class Config():
                 key='preview',
                 field_type=STORED,
                 extractor=extractors.TransformerExtractor(
-                    extractor=extractors.ItemExtractor(key='citation', format_='citation'),
+                    extractor=extractors.ItemExtractor(
+                        key='citation', format_='citation'),
                     # Zotero wraps the citation in a <span> element (most probably
                     # because it expects the 'citation' format to be used in-text),
                     # but that <span> has to be removed because our custom CSL style
                     # causes <div>s to be nested within. Let's replace that <span>
                     # with the same markup that the 'bib' format usually provides.
                     transformers=[
-                        lambda value: re.sub(r'^<span>', '<div class="csl-entry">', value, count=1),
-                        lambda value: re.sub(r'</span>$', '</div>', value, count=1),
+                        lambda value: re.sub(
+                            r'^<span>', '<div class="csl-entry">', value, count=1),
+                        lambda value: re.sub(
+                            r'</span>$', '</div>', value, count=1),
                     ]
                 )
             )
@@ -176,178 +186,179 @@ class Config():
         # Learners facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
-                key='facet_learners',
-                title=_('Learners'),
-                filter_key='learners',
+                key='facet_folders',
+                title=_('FOLDERS'),
+                filter_key='folders',
                 weight=1,
-                collection_key='X6MP49KP',
+                collection_key='ZFP5DRQS',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
         )
 
-        # Educators type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_educators',
-                filter_key='educators',
-                title=_('Educators'),
-                weight=2,
-                collection_key='HCTKHFNN',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Educators type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_educators',
+        #         filter_key='educators',
+        #         title=_('Educators'),
+        #         weight=2,
+        #         collection_key='HCTKHFNN',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Education systems type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_education_systems',
-                filter_key='education_systems',
-                title=_('Education systems'),
-                weight=3,
-                collection_key='X3DPTXLG',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Education systems type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_education_systems',
+        #         filter_key='education_systems',
+        #         title=_('Education systems'),
+        #         weight=3,
+        #         collection_key='X3DPTXLG',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Cost effectiveness type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_cost_effectiveness',
-                filter_key='cost_effectiveness',
-                title=_('Cost effectiveness'),
-                weight=4,
-                collection_key='3TN4ME9B',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Cost effectiveness type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_cost_effectiveness',
+        #         filter_key='cost_effectiveness',
+        #         title=_('Cost effectiveness'),
+        #         weight=4,
+        #         collection_key='3TN4ME9B',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Hardware and modality type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_hardware_and_modality',
-                filter_key='hardware_and_modality',
-                title=_('Hardware and modality'),
-                weight=5,
-                collection_key='C965YJYB',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Hardware and modality type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_hardware_and_modality',
+        #         filter_key='hardware_and_modality',
+        #         title=_('Hardware and modality'),
+        #         weight=5,
+        #         collection_key='C965YJYB',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Educational level type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_educational_level',
-                filter_key='educational_level',
-                title=_('Educational level'),
-                weight=6,
-                collection_key='B42SBYGD',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Educational level type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_educational_level',
+        #         filter_key='educational_level',
+        #         title=_('Educational level'),
+        #         weight=6,
+        #         collection_key='B42SBYGD',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Within-country contexts type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_within_country_contexts',
-                filter_key='within_country_contexts',
-                title=_('Within-country contexts'),
-                weight=7,
-                collection_key='P3Q22NYF',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Within-country contexts type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_within_country_contexts',
+        #         filter_key='within_country_contexts',
+        #         title=_('Within-country contexts'),
+        #         weight=7,
+        #         collection_key='P3Q22NYF',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Language of publication type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_language_of_publication',
-                filter_key='language_of_publication',
-                title=_('Language of publication'),
-                weight=8,
-                collection_key='ZNNITHFH',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Language of publication type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_language_of_publication',
+        #         filter_key='language_of_publication',
+        #         title=_('Language of publication'),
+        #         weight=8,
+        #         collection_key='ZNNITHFH',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Publisher and type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_publisher_type',
-                filter_key='publisher_type',
-                title=_('Publisher and type'),
-                weight=9,
-                collection_key='N6HGZU24',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Publisher and type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_publisher_type',
+        #         filter_key='publisher_type',
+        #         title=_('Publisher and type'),
+        #         weight=9,
+        #         collection_key='N6HGZU24',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Research method type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_research_method',
-                filter_key='research_method',
-                title=_('Research method'),
-                weight=10,
-                collection_key='9WEL59XM',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Research method type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_research_method',
+        #         filter_key='research_method',
+        #         title=_('Research method'),
+        #         weight=10,
+        #         collection_key='9WEL59XM',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # COVID and reopening of schools type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_covid_and_reopening_of_schools',
-                filter_key='covid_and_reopening_of_schools',
-                title=_('COVID and reopening of schools'),
-                weight=11,
-                collection_key='NRS95TC8',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # COVID and reopening of schools type facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_covid_and_reopening_of_schools',
+        #         filter_key='covid_and_reopening_of_schools',
+        #         title=_('COVID and reopening of schools'),
+        #         weight=11,
+        #         collection_key='NRS95TC8',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Topic Area facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_topic_area',
-                title=_('Topic Area'),
-                filter_key='topic_area',
-                weight=12,
-                collection_key='W6YXX3J6',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
+        # # Topic Area facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_topic_area',
+        #         title=_('Topic Area'),
+        #         filter_key='topic_area',
+        #         weight=12,
+        #         collection_key='W6YXX3J6',
+        #         initial_limit=6,
+        #         initial_limit_leeway=4,
+        #     )
+        # )
 
-        # Focus Countries facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_focus_countries',
-                title=_('Focus Countries'),
-                filter_key='focus_countries',
-                weight=13,
-                collection_key='F29UQFBX',
-                initial_limit=0,
-                initial_limit_leeway=0,
-            )
-        )
+        # # Focus Countries facet.
+        # self.KERKO_COMPOSER.add_facet(
+        #     CollectionFacetSpec(
+        #         key='facet_focus_countries',
+        #         title=_('Focus Countries'),
+        #         filter_key='focus_countries',
+        #         weight=13,
+        #         collection_key='F29UQFBX',
+        #         initial_limit=0,
+        #         initial_limit_leeway=0,
+        #     )
+        # )
 
         # EdTech Hub flag and badge.
         self.KERKO_COMPOSER.add_field(
             FieldSpec(
                 key='edtechhub',
                 field_type=BOOLEAN(stored=True),
-                extractor=extractors.InCollectionExtractor(collection_key='BFS3UXT4'),
+                extractor=extractors.InCollectionExtractor(
+                    collection_key='BFS3UXT4'),
             )
         )
         self.KERKO_COMPOSER.add_badge(
@@ -403,9 +414,11 @@ class Config():
         # Boost factor for every field of any EdTech Hub publication.
         self.KERKO_COMPOSER.add_field(
             FieldSpec(
-                key='_boost',  # Per whoosh.writing.IndexWriter.add_document() usage.
+                # Per whoosh.writing.IndexWriter.add_document() usage.
+                key='_boost',
                 field_type=None,  # Not to be added to the schema.
-                extractor=InCollectionBoostExtractor(collection_key='BFS3UXT4', boost_factor=5.0),
+                extractor=InCollectionBoostExtractor(
+                    collection_key='BFS3UXT4', boost_factor=5.0),
             )
         )
 
@@ -413,10 +426,10 @@ class Config():
         self.KERKO_COMPOSER.add_sort(
             SortSpec(
                 key='hub_desc',
-                label=_('EdTech Hub first'),
-                weight=5,
+                label=_(''),
+                weight=4,
                 fields=[
-                    self.KERKO_COMPOSER.fields['edtechhub'],
+                    # self.KERKO_COMPOSER.fields['edtechhub'],
                     self.KERKO_COMPOSER.fields['sort_date'],
                     self.KERKO_COMPOSER.fields['sort_creator'],
                     self.KERKO_COMPOSER.fields['sort_title']
@@ -438,7 +451,8 @@ class DevelopmentConfig(Config):
 
         self.CONFIG = 'development'
         self.DEBUG = True
-        self.ASSETS_DEBUG = env.bool('ASSETS_DEBUG', True)  # Don't bundle/minify static assets.
+        # Don't bundle/minify static assets.
+        self.ASSETS_DEBUG = env.bool('ASSETS_DEBUG', True)
         self.LIBSASS_STYLE = 'expanded'
         self.LOGGING_LEVEL = env.str('LOGGING_LEVEL', 'DEBUG')
         # self.EXPLAIN_TEMPLATE_LOADING = True

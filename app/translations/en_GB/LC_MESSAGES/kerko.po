@@ -534,7 +534,7 @@ msgid "Read '{}'"
 msgstr ""
 
 #: src/kerko/templates/kerko/_sorter.html.jinja2:4
-msgid "Sort by {sort_option}"
+msgid "Sort by: {sort_option}"
 msgstr ""
 
 #: src/kerko/templates/kerko/_sorter.html.jinja2:5

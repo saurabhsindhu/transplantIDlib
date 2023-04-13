@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" page-range-format="expanded">
   <info>
-    <title>EdTech Hub Evidence Library - APA</title>
+    <title>transplantid</title>
     <title-short>ETH_APA</title-short>
     <summary>This style is NOT meant for general use. Its sole purpose is to serve the software behind https://docs.edtechhub.org/. This style hijacks the in-text citation formatting to format search results instead, and leaves the bibliography formatting untouched (identical to APA, 7th Edition).</summary>
     <id>https://docs.edtechhub.org/static/dist/csl/eth_apa.xml</id>

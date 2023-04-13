@@ -1,7 +1,7 @@
 {
-  "name": "edtechhublib",
+  "name": "transplantid",
   "version": "1.0.0",
-  "description": "EdTech Hub Evidence Library",
+  "description": "",
   "main": "",
   "scripts": {
     "postinstall": "node ./node_modules/frontend-dependencies/index.js",
@@ -24,7 +24,7 @@
     "Android >= 4.4",
     "Opera >= 30"
   ],
-  "author": "EdTech Hub",
+  "author": "TransplantD",
   "license": "BSD-3-Clause",
   "devDependencies": {
     "autoprefixer": "^9.7.0",
