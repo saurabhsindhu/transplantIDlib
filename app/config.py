@@ -452,7 +452,7 @@ class DevelopmentConfig(Config):
         self.CONFIG = 'development'
         self.DEBUG = True
         # Don't bundle/minify static assets.
-        self.ASSETS_DEBUG = env.bool('ASSETS_DEBUG', True)
+        self.ASSETS_DEBUG = env.bool('ASSETS_DEBUG', False)
         self.LIBSASS_STYLE = 'expanded'
         self.LOGGING_LEVEL = env.str('LOGGING_LEVEL', 'DEBUG')
         # self.EXPLAIN_TEMPLATE_LOADING = True
