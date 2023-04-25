@@ -45,7 +45,7 @@ class Config():
         self.KERKO_WHOOSH_LANGUAGE = 'en'
         self.KERKO_ZOTERO_LOCALE = 'en-GB'
 
-        self.HOME_URL = 'https://www.zotero.org/transplantid/library'
+        self.HOME_URL = 'https://www.myast.org/'
         self.HOME_URL2 = '/'
         self.HOME_TITLE = _("TransplantID")
         self.HOME_SUBTITLE = _(
@@ -56,7 +56,7 @@ class Config():
         self.ABOUT_STRATEGIC_ADVISORY = 'https://edtechhub.org/strategic-advisory-board/'
         self.ABOUT_SPECIALIST_NETWORK = 'https://edtechhub.org/specialist-network/'
         self.TOOLS_DATABASE_URL = 'https://www.myast.org/communities-practice/infectious-disease-community-practice-idcop'
-        self.EVIDENCE_ABOUT_URL = 'https://www.zotero.org/transplantid/library'
+        self.EVIDENCE_ABOUT_URL = 'https://twitter.com/TransplantIDNet/'
         self.EVIDENCE_LIBRARY_URL = 'https://docs.edtechhub.org/lib/'
         self.EVIDENCE_COUNTRY_ENGAGEMENT_URL = 'https://edtechhub.org/where-we-work/'
         self.EVIDENCE_TOPIC_AREAS_URL = 'https://edtechhub.org/our-topic-areas/'
@@ -468,7 +468,7 @@ class ProductionConfig(Config):
         self.ASSETS_DEBUG = env.bool('ASSETS_DEBUG', False)
         self.ASSETS_AUTO_BUILD = False
         self.LOGGING_LEVEL = env.str('LOGGING_LEVEL', 'WARNING')
-        self.GOOGLE_ANALYTICS_ID = 'UA-149862882-2'
+        self.GOOGLE_ANALYTICS_ID = 'UA-264388188-1'
         self.LIBSASS_STYLE = 'compressed'
 
 

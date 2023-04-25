@@ -39,7 +39,7 @@ def register_extensions(app):
 def register_blueprints(app):
     # Setting `url_prefix` is required to distinguish the blueprint's static
     # folder route URL from the app's.
-    app.register_blueprint(kerko_blueprint, url_prefix='/lib')
+    app.register_blueprint(kerko_blueprint, url_prefix='/')
 
 
 def register_errorhandlers(app):
