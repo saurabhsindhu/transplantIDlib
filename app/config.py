@@ -183,57 +183,59 @@ class Config():
             )
         )
 
-        # Learners facet.
+
+        # Covid-19 type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_covid-19',
+                filter_key='covid-19',
+                title=_('COVID-19'),
+                weight=1,
+                collection_key='ICABG5DW',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+
+        # Folders facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_folders',
                 title=_('FOLDERS'),
                 filter_key='folders',
-                weight=1,
+                weight=2,
                 collection_key='ZFP5DRQS',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
         )
 
-        # # Educators type facet.
-        # self.KERKO_COMPOSER.add_facet(
-        #     CollectionFacetSpec(
-        #         key='facet_educators',
-        #         filter_key='educators',
-        #         title=_('Educators'),
-        #         weight=2,
-        #         collection_key='HCTKHFNN',
-        #         initial_limit=6,
-        #         initial_limit_leeway=4,
-        #     )
-        # )
+        # Guidelines type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_guidelines',
+                filter_key='guidelines',
+                title=_('GUIDELINES'),
+                weight=3,
+                collection_key='DMZGXQPK',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
 
-        # # Education systems type facet.
-        # self.KERKO_COMPOSER.add_facet(
-        #     CollectionFacetSpec(
-        #         key='facet_education_systems',
-        #         filter_key='education_systems',
-        #         title=_('Education systems'),
-        #         weight=3,
-        #         collection_key='X3DPTXLG',
-        #         initial_limit=6,
-        #         initial_limit_leeway=4,
-        #     )
-        # )
-
-        # # Cost effectiveness type facet.
-        # self.KERKO_COMPOSER.add_facet(
-        #     CollectionFacetSpec(
-        #         key='facet_cost_effectiveness',
-        #         filter_key='cost_effectiveness',
-        #         title=_('Cost effectiveness'),
-        #         weight=4,
-        #         collection_key='3TN4ME9B',
-        #         initial_limit=6,
-        #         initial_limit_leeway=4,
-        #     )
-        # )
+        # Textbook type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_textbooks',
+                filter_key='textbooks',
+                title=_('TEXTBOOKS'),
+                weight=4,
+                collection_key='TQLYTNTG',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
 
         # # Hardware and modality type facet.
         # self.KERKO_COMPOSER.add_facet(

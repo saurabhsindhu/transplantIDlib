@@ -55,6 +55,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ config.BLOG_URL }}">{{ _('Publication') }}</a>
                             </li>
+                            <li class="nav-item menu-item-has-children">
+                                <a class="nav-link" href="{{ config.HOME_URL2 }}">{{ _('ABOUT US') }}</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item"><a href="{{ config.HOME_URL2 }}"><span>{{ _('Who We Are') }}</span></a></li>
+                                    <li class="menu-item"><a href="{{ config.HOME_URL2 }}"><span>{{ _('Under the Hood') }}</span></a></li>
+                                </ul>
+                            </li>
                         {%- endblock navbar_items %}
                     </ul>
                 </div>
