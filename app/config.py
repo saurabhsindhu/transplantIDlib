@@ -64,10 +64,10 @@ class Config():
         self.EVIDENCE_SANDBOXES_URL = 'https://edtechhub.org/sandboxes/'
         self.EVIDENCE_HELPDESK_URL = 'https://edtechhub.org/edtech-hub-helpdesk/'
         self.BLOG_URL = 'https://doi.org/10.1093/ofid/ofad081'
-        self.CONNECT_WITH_US_URL = 'https://edtechhub.org/connect-with-edtech-hub/'
+        self.CONNECT_WITH_US_URL = 'https://txpid.in/WhoWeAre.html'
         self.CONNECT_WITH_US_NEWSLETTER_URL = 'https://edtechhub.org/newsletter/'
         self.CONNECT_WITH_US_EVENTS_URL = 'https://edtechhub.org/events/'
-        self.CONNECT_WITH_US_CONTACT_URL = 'https://edtechhub.org/connect-with-edtech-hub/#contact'
+        self.CONNECT_WITH_US_CONTACT_URL = 'https://txpid.in/UndertheHood.html'
 
         self.NAV_TITLE = _("")
         self.KERKO_TITLE = _("TransplantID")
