@@ -183,20 +183,18 @@ class Config():
             )
         )
 
-
         # Covid-19 type facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_covid-19',
                 filter_key='covid-19',
                 title=_('COVID-19'),
-                weight=1,
+                weight=2,
                 collection_key='ICABG5DW',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
         )
-
 
         # Folders facet.
         self.KERKO_COMPOSER.add_facet(
@@ -204,7 +202,7 @@ class Config():
                 key='facet_folders',
                 title=_('FOLDERS'),
                 filter_key='folders',
-                weight=2,
+                weight=1,
                 collection_key='ZFP5DRQS',
                 initial_limit=6,
                 initial_limit_leeway=4,
