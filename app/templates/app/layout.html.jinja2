@@ -26,7 +26,7 @@
         <div class="container">
             {%- block navbar_brand %}
                 <div class="navbar-brand">
-                    <a class="d-block brand-title" href="{{ config.HOME_URL }}">
+                    <a class="d-block brand-title" href="{{ config.HOME_URL }}" target="_blank">
                         <img width="200" title="{{ config.HOME_TITLE }}" src="{{ url_for('static', filename='dist/images/logo.png') }}" />
                     </a>
                 </div>
@@ -43,23 +43,26 @@
                 <div id="navbar-content" class="collapse navbar-collapse">
                     <ul class="navbar-nav justify-content-end">
                         {%- block navbar_items %}
+                        <a class="d-block brand-title" href="{{ config.HOME_URL2 }}">
+                        <img width="200" title="{{ config.HOME_URL2 }}" src="{{ url_for('static', filename='dist/images/Beta_logo.jpg') }}" />
+                        </a>
                          <li class="nav-item">
                                 <a class="nav-link" href="{{ config.HOME_URL2 }}">{{ _('Home') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ config.TOOLS_DATABASE_URL }}">{{ _('IDCOP') }}</a>
+                                <a class="nav-link" href="{{ config.TOOLS_DATABASE_URL }}" target="_blank">{{ _('IDCOP') }}</a>
                             </li>
                              <li class="nav-item">
-                                <a class="nav-link" href="{{ config.EVIDENCE_ABOUT_URL }}">{{ _('Twitter Feed') }}</a>
+                                <a class="nav-link" href="{{ config.EVIDENCE_ABOUT_URL }}" target="_blank">{{ _('Twitter Feed') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ config.BLOG_URL }}">{{ _('Publication') }}</a>
+                                <a class="nav-link" href="{{ config.BLOG_URL }}" target="_blank">{{ _('Publication') }}</a>
                             </li>
                             <li class="nav-item menu-item-has-children">
-                                <a class="nav-link" href="{{ config.CONNECT_WITH_US_URL }}">{{ _('ABOUT US') }}</a>
+                                <a class="nav-link"">{{ _('ABOUT US') }}</a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item"><a href="{{ config.CONNECT_WITH_US_URL }}"><span>{{ _('Who We Are') }}</span></a></li>
-                                    <li class="menu-item"><a href="{{ config.CONNECT_WITH_US_CONTACT_URL }}"><span>{{ _('Under the Hood') }}</span></a></li>
+                                    <li class="menu-item"><a href="{{ config.CONNECT_WITH_US_URL }}" target="_blank"><span>{{ _('Who We Are') }}</span></a></li>
+                                    <li class="menu-item"><a href="{{ config.CONNECT_WITH_US_CONTACT_URL }}" target="_blank"><span>{{ _('Under the Hood') }}</span></a></li>
                                 </ul>
                             </li>
                         {%- endblock navbar_items %}

@@ -44,6 +44,8 @@ class Config():
         self.BABEL_DEFAULT_LOCALE = 'en_GB'
         self.KERKO_WHOOSH_LANGUAGE = 'en'
         self.KERKO_ZOTERO_LOCALE = 'en-GB'
+        self.BABEL_DEFAULT_TIMEZONE = 'EST'
+
 
         self.HOME_URL = 'https://www.myast.org/'
         self.HOME_URL2 = '/'
@@ -74,7 +76,7 @@ class Config():
         self.KERKO_PRINT_ITEM_LINK = True
         self.KERKO_PRINT_CITATIONS_LINK = True
         self.KERKO_RESULTS_FIELDS = [
-            'id', 'attachments', 'bib', 'data', 'preview', 'url']
+            'id', 'attachments', 'bib', 'data', 'preview']
         self.KERKO_RESULTS_ABSTRACTS = False
         self.KERKO_RESULTS_ABSTRACTS_MAX_LENGTH = 500
         self.KERKO_RESULTS_ABSTRACTS_MAX_LENGTH_LEEWAY = 40
@@ -86,7 +88,7 @@ class Config():
         self.KERKO_OPEN_IN_ZOTERO_APP = True
         self.KERKO_OPEN_IN_ZOTERO_WEB = True
         self.KERKO_RELATIONS_INITIAL_LIMIT = 50
-        self.KERKO_FEEDS = ['atom']
+        self.KERKO_FEEDS = ['']
         self.KERKO_FEEDS_MAX_DAYS = 0
 
         # CAUTION: The URL's query string must be changed after any edit to the CSL
