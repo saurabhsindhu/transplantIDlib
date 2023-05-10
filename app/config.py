@@ -41,9 +41,9 @@ class Config():
                 'vendor' / '@fortawesome' / 'fontawesome-free' / 'scss'),
         ]
 
-        self.BABEL_DEFAULT_LOCALE = 'en_GB'
+        self.BABEL_DEFAULT_LOCALE = 'en'
         self.KERKO_WHOOSH_LANGUAGE = 'en'
-        self.KERKO_ZOTERO_LOCALE = 'en-GB'
+        self.KERKO_ZOTERO_LOCALE = 'en'
         self.BABEL_DEFAULT_TIMEZONE = 'EST'
 
 
