@@ -46,7 +46,6 @@ class Config():
         self.KERKO_ZOTERO_LOCALE = 'en_US'
         self.BABEL_DEFAULT_TIMEZONE = 'EST'
 
-
         self.HOME_URL = 'https://www.myast.org/'
         self.HOME_URL2 = '/'
         self.HOME_TITLE = _("TransplantID")
@@ -185,39 +184,13 @@ class Config():
             )
         )
 
-        # Covid-19 type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_covid-19',
-                filter_key='covid-19',
-                title=_('COVID-19'),
-                weight=2,
-                collection_key='ICABG5DW',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
-
-        # Folders facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_folders',
-                title=_('FOLDERS'),
-                filter_key='folders',
-                weight=1,
-                collection_key='ZFP5DRQS',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
-
         # Guidelines type facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_guidelines',
                 filter_key='guidelines',
                 title=_('GUIDELINES'),
-                weight=3,
+                weight=1,
                 collection_key='DMZGXQPK',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -230,38 +203,181 @@ class Config():
                 key='facet_textbooks',
                 filter_key='textbooks',
                 title=_('TEXTBOOKS'),
-                weight=4,
+                weight=2,
                 collection_key='TQLYTNTG',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
         )
 
-        # # Hardware and modality type facet.
-        # self.KERKO_COMPOSER.add_facet(
-        #     CollectionFacetSpec(
-        #         key='facet_hardware_and_modality',
-        #         filter_key='hardware_and_modality',
-        #         title=_('Hardware and modality'),
-        #         weight=5,
-        #         collection_key='C965YJYB',
-        #         initial_limit=6,
-        #         initial_limit_leeway=4,
-        #     )
-        # )
+        # BACTERIA facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_bacteria',
+                title=_('BACTERIA'),
+                filter_key='bacteria',
+                weight=3,
+                collection_key='2Q95UIXQ',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
 
-        # # Educational level type facet.
-        # self.KERKO_COMPOSER.add_facet(
-        #     CollectionFacetSpec(
-        #         key='facet_educational_level',
-        #         filter_key='educational_level',
-        #         title=_('Educational level'),
-        #         weight=6,
-        #         collection_key='B42SBYGD',
-        #         initial_limit=6,
-        #         initial_limit_leeway=4,
-        #     )
-        # )
+        # VIRUSES facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_viruses',
+                title=_('VIRUSES'),
+                filter_key='viruses',
+                weight=4,
+                collection_key='JE2GYT5N',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # FUNGI facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_fungi',
+                title=_('FUNGI'),
+                filter_key='fungi',
+                weight=5,
+                collection_key='S84MTQ3I',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # PARASITES AND PROTOZOA facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_parasites_and_protozoa',
+                title=_('PARASITES AND PROTOZOA'),
+                filter_key='parasites_and_protozoa',
+                weight=6,
+                collection_key='ZQJFI3GV',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # DIAGNOSTICS facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_diagnostics',
+                title=_('DIAGNOSTICS'),
+                filter_key='diagnostics',
+                weight=7,
+                collection_key='GZMLE9CP',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # DRUGS AND THERAPIES facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_drugs_and_therapies',
+                title=_('DRUGS AND THERAPIES'),
+                filter_key='drugs_and_therapies',
+                weight=8,
+                collection_key='XE782DPL',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # PREVENTION facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_prevention',
+                title=_('PREVENTION'),
+                filter_key='prevention',
+                weight=9,
+                collection_key='JMJCPZ8T',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # SYNDROMES AND CONDITIONS facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_syndromes_and_conditions',
+                title=_('SYNDROMES AND CONDITIONS'),
+                filter_key='syndromes_and_conditions',
+                weight=10,
+                collection_key='LENWYRWR',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # SOLID ORGANS AND MCSS facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_solid_organs_and_mcss',
+                title=_('SOLID ORGANS AND MCSS'),
+                filter_key='solid_organs_and_mcss',
+                weight=11,
+                collection_key='R6DI3TQT',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # HEME/ONC AND CELLULAR THERAPIES facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_heme/onc_and_cellular_therapies',
+                title=_('HEME/ONC AND CELLULAR THERAPIES'),
+                filter_key='heme/onc_and_cellular_therapies',
+                weight=12,
+                collection_key='FEXGFAWR',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # EDUCATION type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_education',
+                filter_key='education',
+                title=_('EDUCATION'),
+                weight=13,
+                collection_key='ZFP5DRQS',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # Covid-19 type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_covid-19',
+                filter_key='covid-19',
+                title=_('COVID-19'),
+                weight=14,
+                collection_key='ICABG5DW',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # ARTICLE OF THE MONTH type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_article_of_the_month',
+                filter_key='article_of_the_month',
+                title=_('ARTICLE OF THE MONTH'),
+                weight=15,
+                collection_key='XSEHIBPU',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
 
         # # Within-country contexts type facet.
         # self.KERKO_COMPOSER.add_facet(
