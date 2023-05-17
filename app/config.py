@@ -210,57 +210,19 @@ class Config():
             )
         )
 
-        # BACTERIA facet.
+         # ORGANISMS type facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
-                key='facet_bacteria',
-                title=_('BACTERIA'),
-                filter_key='bacteria',
+                key='facet_organisms',
+                filter_key='organisms',
+                title=_('ORGANISMS'),
                 weight=3,
-                collection_key='2Q95UIXQ',
+                collection_key='EX4SAVUI',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
         )
 
-        # VIRUSES facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_viruses',
-                title=_('VIRUSES'),
-                filter_key='viruses',
-                weight=4,
-                collection_key='JE2GYT5N',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
-
-        # FUNGI facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_fungi',
-                title=_('FUNGI'),
-                filter_key='fungi',
-                weight=5,
-                collection_key='S84MTQ3I',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
-
-        # PARASITES AND PROTOZOA facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_parasites_and_protozoa',
-                title=_('PARASITES AND PROTOZOA'),
-                filter_key='parasites_and_protozoa',
-                weight=6,
-                collection_key='ZQJFI3GV',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
 
         # DIAGNOSTICS facet.
         self.KERKO_COMPOSER.add_facet(
@@ -268,7 +230,7 @@ class Config():
                 key='facet_diagnostics',
                 title=_('DIAGNOSTICS'),
                 filter_key='diagnostics',
-                weight=7,
+                weight=4,
                 collection_key='GZMLE9CP',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -281,7 +243,7 @@ class Config():
                 key='facet_drugs_and_therapies',
                 title=_('DRUGS AND THERAPIES'),
                 filter_key='drugs_and_therapies',
-                weight=8,
+                weight=5,
                 collection_key='XE782DPL',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -294,7 +256,7 @@ class Config():
                 key='facet_prevention',
                 title=_('PREVENTION'),
                 filter_key='prevention',
-                weight=9,
+                weight=6,
                 collection_key='JMJCPZ8T',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -307,7 +269,7 @@ class Config():
                 key='facet_syndromes_and_conditions',
                 title=_('SYNDROMES AND CONDITIONS'),
                 filter_key='syndromes_and_conditions',
-                weight=10,
+                weight=7,
                 collection_key='LENWYRWR',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -320,7 +282,7 @@ class Config():
                 key='facet_solid_organs_and_mcss',
                 title=_('SOLID ORGANS AND MCSS'),
                 filter_key='solid_organs_and_mcss',
-                weight=11,
+                weight=8,
                 collection_key='R6DI3TQT',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -333,7 +295,7 @@ class Config():
                 key='facet_heme/onc_and_cellular_therapies',
                 title=_('HEME/ONC AND CELLULAR THERAPIES'),
                 filter_key='heme/onc_and_cellular_therapies',
-                weight=12,
+                weight=9,
                 collection_key='FEXGFAWR',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -346,7 +308,7 @@ class Config():
                 key='facet_education',
                 filter_key='education',
                 title=_('EDUCATION'),
-                weight=13,
+                weight=10,
                 collection_key='ZFP5DRQS',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -359,7 +321,7 @@ class Config():
                 key='facet_covid-19',
                 filter_key='covid-19',
                 title=_('COVID-19'),
-                weight=14,
+                weight=11,
                 collection_key='ICABG5DW',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -372,7 +334,7 @@ class Config():
                 key='facet_article_of_the_month',
                 filter_key='article_of_the_month',
                 title=_('ARTICLE OF THE MONTH'),
-                weight=15,
+                weight=12,
                 collection_key='XSEHIBPU',
                 initial_limit=6,
                 initial_limit_leeway=4,
