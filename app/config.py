@@ -210,7 +210,7 @@ class Config():
             )
         )
 
-         # ORGANISMS type facet.
+        # ORGANISMS type facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_organisms',
@@ -222,7 +222,6 @@ class Config():
                 initial_limit_leeway=4,
             )
         )
-
 
         # DIAGNOSTICS facet.
         self.KERKO_COMPOSER.add_facet(
