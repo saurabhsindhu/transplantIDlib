@@ -65,10 +65,10 @@ class Config():
         self.EVIDENCE_SANDBOXES_URL = 'https://edtechhub.org/sandboxes/'
         self.EVIDENCE_HELPDESK_URL = 'https://edtechhub.org/edtech-hub-helpdesk/'
         self.BLOG_URL = 'https://doi.org/10.1093/ofid/ofad081'
-        self.CONNECT_WITH_US_URL = 'https://txpid.in/WhoWeAre.html'
+        self.CONNECT_WITH_US_URL = 'https://transplantid.net/WhoWeAre.html'
         self.CONNECT_WITH_US_NEWSLETTER_URL = 'https://edtechhub.org/newsletter/'
         self.CONNECT_WITH_US_EVENTS_URL = 'https://edtechhub.org/events/'
-        self.CONNECT_WITH_US_CONTACT_URL = 'https://txpid.in/UndertheHood.html'
+        self.CONNECT_WITH_US_CONTACT_URL = 'https://transplantid.net/UndertheHood.html'
 
         self.NAV_TITLE = _("")
         self.KERKO_TITLE = _("TransplantID")
@@ -327,31 +327,44 @@ class Config():
             )
         )
 
+        # Within-country contexts type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_frailty',
+                filter_key='frailty',
+                title=_('FRAILTY'),
+                weight=12,
+                collection_key='DZB8PTRD',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
         # ARTICLE OF THE MONTH type facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_article_of_the_month',
                 filter_key='article_of_the_month',
                 title=_('ARTICLE OF THE MONTH'),
-                weight=12,
+                weight=13,
                 collection_key='XSEHIBPU',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
         )
 
-        # # Within-country contexts type facet.
-        # self.KERKO_COMPOSER.add_facet(
-        #     CollectionFacetSpec(
-        #         key='facet_within_country_contexts',
-        #         filter_key='within_country_contexts',
-        #         title=_('Within-country contexts'),
-        #         weight=7,
-        #         collection_key='P3Q22NYF',
-        #         initial_limit=6,
-        #         initial_limit_leeway=4,
-        #     )
-        # )
+        # Within-country contexts type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_atc_2023_top_papers_in_tid',
+                filter_key='atc_2023_top_papers_in_tid',
+                title=_('ATC 2023 Top Papers in TID'),
+                weight=14,
+                collection_key='ENFCTNHS',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
 
         # # Language of publication type facet.
         # self.KERKO_COMPOSER.add_facet(
