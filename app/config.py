@@ -527,10 +527,10 @@ class Config():
                     self.KERKO_COMPOSER.fields['sort_title']
                 ],
                 reverse=[
-                    False,
                     True,
                     False,
                     False,
+                    False
                 ],
             )
         )
