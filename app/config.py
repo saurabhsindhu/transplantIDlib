@@ -291,9 +291,9 @@ class Config():
         # HEME/ONC AND CELLULAR THERAPIES facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
-                key='facet_heme/onc_and_cellular_therapies',
-                title=_('HEME/ONC AND CELLULAR THERAPIES'),
-                filter_key='heme/onc_and_cellular_therapies',
+                key='facet_heme-onc_and_cellular_therapies',
+                title=_('HEME-ONC AND CELLULAR THERAPIES'),
+                filter_key='heme-onc_and_cellular_therapies',
                 weight=9,
                 collection_key='FEXGFAWR',
                 initial_limit=6,
