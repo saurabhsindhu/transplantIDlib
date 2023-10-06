@@ -223,13 +223,26 @@ class Config():
             )
         )
 
+        # PATIENT EDUCATION type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_patient_education',
+                filter_key='patient_education',
+                title=_('PATIENT EDUCATION'),
+                weight=4,
+                collection_key='I9SWX7JX',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
         # DIAGNOSTICS facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_diagnostics',
                 title=_('DIAGNOSTICS'),
                 filter_key='diagnostics',
-                weight=4,
+                weight=5,
                 collection_key='GZMLE9CP',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -242,7 +255,7 @@ class Config():
                 key='facet_drugs_and_therapies',
                 title=_('DRUGS AND THERAPIES'),
                 filter_key='drugs_and_therapies',
-                weight=5,
+                weight=6,
                 collection_key='XE782DPL',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -255,7 +268,7 @@ class Config():
                 key='facet_prevention',
                 title=_('PREVENTION'),
                 filter_key='prevention',
-                weight=6,
+                weight=7,
                 collection_key='JMJCPZ8T',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -268,7 +281,7 @@ class Config():
                 key='facet_syndromes_and_conditions',
                 title=_('SYNDROMES AND CONDITIONS'),
                 filter_key='syndromes_and_conditions',
-                weight=7,
+                weight=8,
                 collection_key='LENWYRWR',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -281,7 +294,7 @@ class Config():
                 key='facet_solid_organs_and_mcss',
                 title=_('SOLID ORGANS AND MCSS'),
                 filter_key='solid_organs_and_mcss',
-                weight=8,
+                weight=9,
                 collection_key='R6DI3TQT',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -294,7 +307,7 @@ class Config():
                 key='facet_heme-onc_and_cellular_therapies',
                 title=_('HEME-ONC AND CELLULAR THERAPIES'),
                 filter_key='heme-onc_and_cellular_therapies',
-                weight=9,
+                weight=10,
                 collection_key='FEXGFAWR',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -307,7 +320,7 @@ class Config():
                 key='facet_education',
                 filter_key='education',
                 title=_('EDUCATION'),
-                weight=10,
+                weight=11,
                 collection_key='ZFP5DRQS',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -320,7 +333,7 @@ class Config():
                 key='facet_covid-19',
                 filter_key='covid-19',
                 title=_('COVID-19'),
-                weight=11,
+                weight=12,
                 collection_key='ICABG5DW',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -333,7 +346,7 @@ class Config():
                 key='facet_frailty',
                 filter_key='frailty',
                 title=_('FRAILTY'),
-                weight=12,
+                weight=13,
                 collection_key='DZB8PTRD',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -346,7 +359,7 @@ class Config():
                 key='facet_article_of_the_month',
                 filter_key='article_of_the_month',
                 title=_('ARTICLE OF THE MONTH'),
-                weight=13,
+                weight=14,
                 collection_key='XSEHIBPU',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -359,7 +372,7 @@ class Config():
                 key='facet_atc_2023_top_papers_in_tid',
                 filter_key='atc_2023_top_papers_in_tid',
                 title=_('ATC 2023 Top Papers in TID'),
-                weight=14,
+                weight=15,
                 collection_key='ENFCTNHS',
                 initial_limit=6,
                 initial_limit_leeway=4,
