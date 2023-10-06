@@ -223,26 +223,13 @@ class Config():
             )
         )
 
-        # PATIENT EDUCATION type facet.
-        self.KERKO_COMPOSER.add_facet(
-            CollectionFacetSpec(
-                key='facet_patient_education',
-                filter_key='patient_education',
-                title=_('PATIENT EDUCATION'),
-                weight=4,
-                collection_key='I9SWX7JX',
-                initial_limit=6,
-                initial_limit_leeway=4,
-            )
-        )
-
         # DIAGNOSTICS facet.
         self.KERKO_COMPOSER.add_facet(
             CollectionFacetSpec(
                 key='facet_diagnostics',
                 title=_('DIAGNOSTICS'),
                 filter_key='diagnostics',
-                weight=5,
+                weight=4,
                 collection_key='GZMLE9CP',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -255,7 +242,7 @@ class Config():
                 key='facet_drugs_and_therapies',
                 title=_('DRUGS AND THERAPIES'),
                 filter_key='drugs_and_therapies',
-                weight=6,
+                weight=5,
                 collection_key='XE782DPL',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -268,7 +255,7 @@ class Config():
                 key='facet_prevention',
                 title=_('PREVENTION'),
                 filter_key='prevention',
-                weight=7,
+                weight=6,
                 collection_key='JMJCPZ8T',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -281,7 +268,7 @@ class Config():
                 key='facet_syndromes_and_conditions',
                 title=_('SYNDROMES AND CONDITIONS'),
                 filter_key='syndromes_and_conditions',
-                weight=8,
+                weight=7,
                 collection_key='LENWYRWR',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -294,7 +281,7 @@ class Config():
                 key='facet_solid_organs_and_mcss',
                 title=_('SOLID ORGANS AND MCSS'),
                 filter_key='solid_organs_and_mcss',
-                weight=9,
+                weight=8,
                 collection_key='R6DI3TQT',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -307,7 +294,7 @@ class Config():
                 key='facet_heme-onc_and_cellular_therapies',
                 title=_('HEME-ONC AND CELLULAR THERAPIES'),
                 filter_key='heme-onc_and_cellular_therapies',
-                weight=10,
+                weight=9,
                 collection_key='FEXGFAWR',
                 initial_limit=6,
                 initial_limit_leeway=4,
@@ -320,8 +307,21 @@ class Config():
                 key='facet_education',
                 filter_key='education',
                 title=_('EDUCATION'),
-                weight=11,
+                weight=10,
                 collection_key='ZFP5DRQS',
+                initial_limit=6,
+                initial_limit_leeway=4,
+            )
+        )
+
+        # PATIENT EDUCATION type facet.
+        self.KERKO_COMPOSER.add_facet(
+            CollectionFacetSpec(
+                key='facet_patient_education',
+                filter_key='patient_education',
+                title=_('PATIENT EDUCATION'),
+                weight=11,
+                collection_key='I9SWX7JX',
                 initial_limit=6,
                 initial_limit_leeway=4,
             )
